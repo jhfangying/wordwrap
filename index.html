@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>wordwrap</title>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js'></script>
+<script src="wordwrap.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var canvas=document.getElementById('canvas');
+		var context=canvas.getContext("2d");
+		context.fillStyle = "#aad7ff";
+		context.fillRect(0,0,canvas.width,canvas.height);
+		context.fillStyle='#000';
+		context.textBaseline = "top";
+		fontsize=16;
+		context.font = "bold "+fontsize+"px sans-serif";
+		var text='asdasd阿斯达十大asdaaaa11111111111111aaaaaaaaaaaaaaaaaa1111111111233333333asdasd阿娇哦期望金额起哦温顺可得分南市街道方式地方那是肯定了富家女时对方';
+		var wordwrap=new WordWrap(text,fontsize,canvas.width);
+		for(var i=0,l=wordwrap.rows;i<l;i++){
+			context.fillText(wordwrap.lines[i],0,i*fontsize,canvas.width);
+		}
+	})
+</script>
+</head>
+<body>
+<canvas id='canvas' ></canvas>
+</body>
+</html>
